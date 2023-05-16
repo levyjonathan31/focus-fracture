@@ -1,9 +1,15 @@
 {
-    "task": [
+    "tasks": [
         {
         "title": "Leet Code",
         "description" : "Front end degen isnt doing leetcode",
         "date" : "2023-05-16"
+        },
+        {
+        "title": "Front end Development",
+        "description" : "Switch between tasks",
+        "date" : "2023-05-16"
         }
     ]
+    
 }
