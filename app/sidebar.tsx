@@ -5,7 +5,7 @@ interface ButtonProps {
 }
 const Button: FC<ButtonProps> = ({ text }) => {
   return (
-    <button className="m-4 rounded border-b-4 border-orange-700 bg-orange-500 px-10 py-4 font-bold text-white hover:border-orange-400 hover:bg-orange-400">
+    <button className="b-4 m-4 bg-gray-600 px-12 py-6 text-xl font-bold text-white">
       {text}
     </button>
   );
@@ -13,7 +13,7 @@ const Button: FC<ButtonProps> = ({ text }) => {
 
 const Sidebar: FC = () => {
   return (
-    <div className="flex min-h-screen w-1/6 flex-col items-center bg-yellow-400">
+    <div className="flex min-h-screen flex-col items-center bg-gray-700">
       <Button text="Build Task" />
       <Button text="Statistics" />
     </div>

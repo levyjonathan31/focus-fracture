@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="bg-gradient-to-b from-green-900 to-green-500 py-5">
+        <header className="bg-gray-700 py-5">
           <nav>
             <ul className="flex justify-around text-2xl">
               <li>
