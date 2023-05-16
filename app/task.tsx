@@ -58,8 +58,9 @@ const Card: FC<CardProps> = ({ tasks }) => {
   return (
     <div className="flex h-5/6 w-2/3 flex-col items-center bg-gray-600 p-4">
       <h1 className="p-5 text-6xl">{title}</h1>
-      <p>{description}</p>
       <p>{date}</p>
+      <p className="m-5 text-center text-3xl">{description}</p>
+
       <div className="flex-grow" />
       <div className="mt-auto">
         <Buttons onIncrement={increment} onDecrement={decrement} />
