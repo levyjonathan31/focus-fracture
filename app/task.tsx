@@ -72,7 +72,7 @@ const Card: FC<CardProps> = ({ tasks }) => {
 const Task: FC = () => {
   const { tasks } = jsonData;
   return (
-    <div className="flex min-h-screen grow items-center justify-center bg-gray-500">
+    <div className="flex min-h-screen w-5/6 items-center justify-center bg-gray-500">
       <Card tasks={tasks} />
     </div>
   );

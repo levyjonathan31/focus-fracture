@@ -7,7 +7,7 @@
         },
         {
         "title": "Card Styling",
-        "description" : "Add better content to cards. This may include adding priority, estimated completion time, organized descriptions (SMART goals?) and other things that may be useful to the user.",
+        "description" : "Add better content to cards. This may include adding priority (likely to replace date), estimated completion time, organized descriptions (SMART goals?) and other things that may be useful to the user.",
         "date" : "2023-05-20"
         },
         {
@@ -18,6 +18,11 @@
         {
         "title": "Brain Storm",
         "description" : "Brainstorm ideas for the app. Current ideas include: Geometrical progress screen, task splitting, a work zone (special screen that contains all your tasks), a reward system, etc.",
+        "date" : "2023-05-20"
+        },
+        {
+        "title": "Front end degen",
+        "description" : "Procrastinates leetcode",
         "date" : "2023-05-20"
         }
     ]
