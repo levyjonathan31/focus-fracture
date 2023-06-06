@@ -1,10 +1,10 @@
 import Sidebar from "./sidebar";
-import Task from "./task";
+import Content from "./content";
 export default function Home() {
   return (
     <div className="flex">
       <Sidebar />
-      <Task />
+      <Content />
     </div>
   );
 }
