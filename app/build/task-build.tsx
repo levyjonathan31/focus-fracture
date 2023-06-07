@@ -17,34 +17,34 @@ const TaskForm: FC = () => {
       <label className="">Title</label>
       <input
         type="text"
-        className="m-2 w-1/2 rounded-md bg-purple-900 px-2"
+        className="m-2 w-1/2 rounded-md bg-purple-900 px-2 text-center"
         name="title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         required
       />
-      <label className="">Shard 1</label>
+      <label className="mt-4">Shard</label>
       <input
         type="text"
-        className="m-2 w-1/2 rounded-md bg-purple-900 px-2"
+        className="m-2 w-1/2 rounded-md bg-purple-900 px-2 text-center"
         name="objective1"
         value={shard1}
         onChange={(e) => setShard1(e.target.value)}
         required
       />
-      <label className="">Shard 2</label>
+      <label className="">Shard</label>
       <input
         type="text"
-        className="m-2 w-1/2 rounded-md bg-purple-900 px-2"
+        className="m-2 w-1/2 rounded-md bg-purple-900 px-2 text-center"
         name="objective2"
         value={shard2}
         onChange={(e) => setShard2(e.target.value)}
         required
       />
-      <label className="">Shard 3</label>
+      <label className="">Shard</label>
       <input
         type="text"
-        className="m-2 w-1/2 rounded-md bg-purple-900 px-2"
+        className="m-2 w-1/2 rounded-md bg-purple-900 px-2 text-center"
         name="objective3"
         value={shard3}
         onChange={(e) => setShard3(e.target.value)}
@@ -61,6 +61,11 @@ const Content: FC = () => {
           Build Task
         </h1>
         <TaskForm />
+        <div className="flex justify-center">
+          <button className="mt-4 w-1/6 items-center rounded-md bg-gray-800 p-4 text-center">
+            Create
+          </button>
+        </div>
       </div>
     </div>
   );
