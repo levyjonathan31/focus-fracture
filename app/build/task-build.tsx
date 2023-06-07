@@ -17,7 +17,7 @@ const TaskForm: FC = () => {
       <label className="">Title</label>
       <input
         type="text"
-        className="m-2 w-1/2 rounded-md bg-purple-900 px-2 text-center"
+        className="m-2 w-1/2 rounded-md bg-purple-900 text-center"
         name="title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
@@ -26,8 +26,8 @@ const TaskForm: FC = () => {
       <label className="mt-4">Shard</label>
       <input
         type="text"
-        className="m-2 w-1/2 rounded-md bg-purple-900 px-2 text-center"
-        name="objective1"
+        className="m-2 w-1/2 rounded-md bg-purple-900 text-center"
+        name="shard1"
         value={shard1}
         onChange={(e) => setShard1(e.target.value)}
         required
@@ -35,8 +35,8 @@ const TaskForm: FC = () => {
       <label className="">Shard</label>
       <input
         type="text"
-        className="m-2 w-1/2 rounded-md bg-purple-900 px-2 text-center"
-        name="objective2"
+        className="m-2 w-1/2 rounded-md bg-purple-900 text-center"
+        name="shard2"
         value={shard2}
         onChange={(e) => setShard2(e.target.value)}
         required
@@ -45,7 +45,7 @@ const TaskForm: FC = () => {
       <input
         type="text"
         className="m-2 w-1/2 rounded-md bg-purple-900 px-2 text-center"
-        name="objective3"
+        name="shard3"
         value={shard3}
         onChange={(e) => setShard3(e.target.value)}
         required
@@ -55,12 +55,13 @@ const TaskForm: FC = () => {
 };
 const Content: FC = () => {
   return (
-    <div className="flex h-screen w-5/6 flex-col items-center justify-center bg-gray-800">
+    <div className="flex h-screen w-5/6 items-center justify-center bg-gray-800">
       <div className="h-5/6 w-5/6 border-4 border-purple-900 bg-gray-900">
         <h1 className="border-b-4 border-purple-900 py-4 text-center text-5xl">
           Build Task
         </h1>
         <TaskForm />
+        <div className="flex-grow"></div>
         <div className="flex justify-center">
           <button className="mt-4 w-1/6 items-center rounded-md bg-gray-800 p-4 text-center">
             Create
