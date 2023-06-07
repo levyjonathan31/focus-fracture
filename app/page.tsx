@@ -1,10 +1,4 @@
-import Sidebar from "./sidebar";
-import Content from "./content";
+import Content from "./task-content";
 export default function Home() {
-  return (
-    <div className="flex">
-      <Sidebar />
-      <Content />
-    </div>
-  );
+  return <Content />;
 }

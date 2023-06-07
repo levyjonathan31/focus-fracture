@@ -1,9 +1,23 @@
 import React, { FC } from "react";
 const Task: FC<{ task: string }> = ({ task }) => {
   return (
-    <div className="h-3/4 w-1/2 border-4 border-purple-900 bg-gray-900">
-      <h1 className="my-4 text-center text-3xl">{task}</h1>
-      <p className="border-t-4 border-purple-900 p-2 text-center">{task} </p>
+    <div className="flex h-3/4 w-1/2 flex-col border-4 border-purple-900 bg-gray-900">
+      <h1 className="text-center text-4xl">{task}</h1>
+      <p className="border-t-4 border-purple-900 p-2 text-center text-xl">
+        {task}
+      </p>
+      <div className="flex-grow"></div>
+      <div className="h-1/12 flex justify-center ">
+        <button className="mx-4 items-center rounded-md bg-gray-800 p-4 text-center">
+          Create
+        </button>
+        <button className="mx-4 items-center rounded-md bg-gray-800 p-4 text-center">
+          Create
+        </button>
+        <button className="mx-4 items-center rounded-md bg-gray-800 p-4 text-center">
+          Create
+        </button>
+      </div>
     </div>
   );
 };
