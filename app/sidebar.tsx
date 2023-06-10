@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-const Button: FC<{ title: string }> = ({ title }) => {
+const Button: FC<{ title: string, page : string }> = ({ title, page }) => {
   return (
     <a
-      href="/"
+      href={page}
       className="mt-4 w-3/5 rounded-md bg-gray-800 p-4 text-center text-white"
     >
       {title}
@@ -18,8 +18,8 @@ const Sidebar: FC = () => {
       >
         Focus Fracture
       </a>
-      <Button title="Workspace" />
-      <Button title="Build Task" />
+      <Button title="Workspace" page="/" />
+      <Button title="Build Task" page="/build" />
       <div className="grow"></div>
     </div>
   );
