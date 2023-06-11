@@ -8,7 +8,7 @@ const Shard: FC<{ label: string }> = ({ label }) => {
       <input
         size={25}
         type="text"
-        className="mb-8 resize-none rounded-md bg-purple-900 text-center"
+        className="mb-8 resize-none rounded-md bg-gray-700 text-center"
         name="title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
