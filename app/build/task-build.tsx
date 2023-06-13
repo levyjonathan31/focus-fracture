@@ -1,5 +1,5 @@
 "use client";
-import { title } from "process";
+import axios from "axios";
 import React, { FC, useState } from "react";
 
 const TaskInput: FC<{
@@ -43,7 +43,24 @@ const TaskForm: FC = () => {
     }));
   };
 
-  function onSubmit(event: React.FormEvent) {}
+  const onSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    const userTask = {
+      userEmail: "jonathanlevy2002@gmail.com",
+      formInputs,
+    };
+    try {
+      // Make a POST request to your backend endpoint
+      const response = await axios.post("/api/sendTask");
+
+      // Handle the response as needed
+      console.log(response.data);
+    } catch (error) {
+      // Handle any errors that occur during the request
+      console.error(error);
+    }
+  };
+
   return (
     <form
       method="post"
