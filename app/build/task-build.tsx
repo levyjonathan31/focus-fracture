@@ -6,9 +6,9 @@ const TaskInput: FC<{
   label: string;
   kind: string;
   data: string;
-  setFunction: React.Dispatch<React.SetStateAction<string>>;
-}> = ({ label, kind, data, setFunction }) => {
-  console.log(title);
+  id: string;
+  setFunction: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}> = ({ label, kind, data, id, setFunction }) => {
   return (
     <div className="flex flex-grow flex-col items-center">
       <label className="m-2">{label}</label>
@@ -16,9 +16,9 @@ const TaskInput: FC<{
         size={17}
         type={kind}
         className="mb-8 resize-none rounded-md bg-gray-700 text-center"
-        name="title"
+        name={id}
         value={data}
-        onChange={(e) => setFunction(e.target.value)}
+        onChange={(e) => setFunction(e)}
         required
       />
     </div>
@@ -26,19 +26,24 @@ const TaskInput: FC<{
 };
 
 const TaskForm: FC = () => {
-  const [name, setName] = useState("");
-  const [shard1, setShard1] = useState("");
-  const [shard2, setShard2] = useState("");
-  const [shard3, setShard3] = useState("");
-  const [date, setDate] = useState("");
+  const [formInputs, setFormInputs] = useState({
+    name: "",
+    shard1: "",
+    shard2: "",
+    shard3: "",
+    date: "",
+  });
 
-  function onSubmit(event: React.FormEvent) {
-    console.log(name);
-    console.log(shard1);
-    console.log(shard2);
-    console.log(shard3);
-    console.log(date);
-  }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    console.log(formInputs);
+    setFormInputs((prevFormInputs) => ({
+      ...prevFormInputs,
+      [name]: value,
+    }));
+  };
+
+  function onSubmit(event: React.FormEvent) {}
   return (
     <form
       method="post"
@@ -46,32 +51,42 @@ const TaskForm: FC = () => {
       onSubmit={onSubmit}
       className="text-center text-2xl"
     >
-      <TaskInput label="Title" kind="text" data={name} setFunction={setName} />
+      <TaskInput
+        label="Title"
+        kind="text"
+        data={formInputs.name}
+        id="name"
+        setFunction={handleInputChange}
+      />
       <div className="flex">
         <TaskInput
           label="Shard"
           kind="text"
-          data={shard1}
-          setFunction={setShard1}
+          data={formInputs.shard1}
+          id="shard1"
+          setFunction={handleInputChange}
         />
         <TaskInput
           label="Shard"
           kind="text"
-          data={shard2}
-          setFunction={setShard2}
+          data={formInputs.shard2}
+          id="shard2"
+          setFunction={handleInputChange}
         />
         <TaskInput
           label="Shard"
           kind="text"
-          data={shard3}
-          setFunction={setShard3}
+          data={formInputs.shard3}
+          id="shard3"
+          setFunction={handleInputChange}
         />
       </div>
       <TaskInput
         label="Target Date"
         kind="date"
-        data={date}
-        setFunction={setDate}
+        data={formInputs.date}
+        id="date"
+        setFunction={handleInputChange}
       />
       <button
         type="submit"
