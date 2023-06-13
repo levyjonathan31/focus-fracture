@@ -51,13 +51,12 @@ const TaskForm: FC = () => {
     };
     try {
       // Make a POST request to your backend endpoint
-      const response = await axios.post("/api/sendTask");
+      const response = await axios.post("/api/sendTask", userTask);
 
       // Handle the response as needed
       console.log(response.data);
     } catch (error) {
       // Handle any errors that occur during the request
-      console.log("LOL UR SO DUMB AHHAHAHAHAH");
       console.error(error);
     }
   };
