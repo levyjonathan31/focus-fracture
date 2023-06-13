@@ -57,6 +57,7 @@ const TaskForm: FC = () => {
       console.log(response.data);
     } catch (error) {
       // Handle any errors that occur during the request
+      console.log("LOL UR SO DUMB AHHAHAHAHAH");
       console.error(error);
     }
   };
