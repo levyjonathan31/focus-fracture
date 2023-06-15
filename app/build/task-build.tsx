@@ -26,12 +26,20 @@ const TaskInput: FC<{
 };
 
 const TaskForm: FC = () => {
+  const current = new Date();
+  const date =
+    current.getFullYear() +
+    "-" +
+    ("0" + (current.getMonth() + 1)).slice(-2) +
+    "-" +
+    ("0" + current.getDate()).slice(-2);
+  console.log(date);
   const [formInputs, setFormInputs] = useState({
     name: "",
     shard1: "",
     shard2: "",
     shard3: "",
-    date: "",
+    date: date,
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
