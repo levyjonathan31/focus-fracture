@@ -1,24 +1,30 @@
 "use client";
 import axios from "axios";
+import { on } from "events";
 import React, { FC, useState } from "react";
 
 const TaskInput: FC<{
   label: string;
-  data: string;
   id: string;
   kind: string;
-  setFunction: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}> = ({ label, data, id, kind, setFunction }) => {
+  setFunction: (id: string, value: string) => void;
+}> = ({ label, id, kind, setFunction }) => {
+  const [input, setInput] = useState("");
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setInput(value);
+    setFunction(id, value);
+  };
   return (
     <div className="flex flex-grow flex-col items-center">
       <label className="">{label}</label>
       <input
-        size={17}
+        size={25}
         className="mx-6 mb-4 resize-none rounded-md bg-gray-700 text-center"
         type={kind}
         name={id}
-        value={data}
-        onChange={(e) => setFunction(e)}
+        value={input}
+        onChange={handleInputChange}
         required
       />
     </div>
@@ -33,43 +39,36 @@ const TaskForm: FC = () => {
     ("0" + (current.getMonth() + 1)).slice(-2) +
     "-" +
     ("0" + current.getDate()).slice(-2);
-  const [formInputs, setFormInputs] = useState({
+  const [header, setHeader] = useState({
     name: "",
-    shard1: {
-      description1: "",
-      category1: "",
-      measure1: "",
-      deadline1: date,
-    },
-    shard2: {
-      description2: "",
-      category2: "",
-      measure2: "",
-      deadline2: date,
-    },
+    category: "",
+    deadline: date,
   });
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-
-    setFormInputs((prevFormInputs) => ({
-      ...prevFormInputs,
-      [name]: value,
-      shard1: {
-        ...prevFormInputs.shard1,
-        [name]: value,
-      },
-      shard2: {
-        ...prevFormInputs.shard2,
-        [name]: value,
-      },
-    }));
+  const [shard1, setShard1] = useState({
+    description: "",
+    measure: "",
+  });
+  const [shard2, setShard2] = useState({
+    description: "",
+    measure: "",
+  });
+  const onHeaderChange = (id: string, value: string) => {
+    setHeader({ ...header, [id]: value });
+  };
+  const onShard1Change = (id: string, value: string) => {
+    setShard1({ ...shard1, [id]: value });
+  };
+  const onShard2Change = (id: string, value: string) => {
+    setShard2({ ...shard2, [id]: value });
   };
 
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     const userTask = {
-      userEmail: "jonathanlevy2002@gmail.com",
-      formInputs,
+      userEmail: "testUser",
+      header,
+      shard1,
+      shard2,
     };
     try {
       // Make a POST request to your backend endpoint
@@ -92,74 +91,52 @@ const TaskForm: FC = () => {
     >
       <TaskInput
         label="Title"
-        data={formInputs.name}
         id="name"
         kind="text"
-        setFunction={handleInputChange}
+        setFunction={onHeaderChange}
       />
       <div className="flex justify-center">
         <div className="flex flex-col">
           <TaskInput
-            label="Description"
-            data={formInputs.shard1.description1}
-            id="description1"
+            label="Shard"
+            id="description"
             kind="text"
-            setFunction={handleInputChange}
-          />
-          <TaskInput
-            label="Category"
-            data={formInputs.shard1.category1}
-            id="category1"
-            kind="text"
-            setFunction={handleInputChange}
+            setFunction={onShard1Change}
           />
           <TaskInput
             label="Measure"
-            data={formInputs.shard1.measure1}
-            id="measure1"
+            id="measure"
             kind="text"
-            setFunction={handleInputChange}
-          />
-          <TaskInput
-            label="Target Date"
-            data={formInputs.shard1.deadline1}
-            id="deadline1"
-            kind="date"
-            setFunction={handleInputChange}
+            setFunction={onShard1Change}
           />
         </div>
         <div className="flex flex-col">
           <TaskInput
-            label="Description"
-            data={formInputs.shard2.description2}
-            id="description2"
+            label="Shard"
+            id="description"
             kind="text"
-            setFunction={handleInputChange}
-          />
-          <TaskInput
-            label="Category"
-            data={formInputs.shard2.category2}
-            id="category2"
-            kind="text"
-            setFunction={handleInputChange}
+            setFunction={onShard2Change}
           />
           <TaskInput
             label="Measure"
-            data={formInputs.shard2.measure2}
-            id="measure2"
+            id="measure"
             kind="text"
-            setFunction={handleInputChange}
-          />
-          <TaskInput
-            label="Target Date"
-            data={formInputs.shard2.deadline2}
-            id="deadline2"
-            kind="date"
-            setFunction={handleInputChange}
+            setFunction={onShard2Change}
           />
         </div>
       </div>
-
+      <TaskInput
+        label="Category"
+        id="measure2"
+        kind="text"
+        setFunction={onHeaderChange}
+      />
+      <TaskInput
+        label="Target Date"
+        id="deadline1"
+        kind="date"
+        setFunction={onHeaderChange}
+      />
       <button
         type="submit"
         className="mb-4 w-1/6 rounded-md bg-gray-800 p-4 text-center"
