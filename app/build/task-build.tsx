@@ -127,13 +127,13 @@ const TaskForm: FC = () => {
       </div>
       <TaskInput
         label="Category"
-        id="measure2"
+        id="category"
         kind="text"
         setFunction={onHeaderChange}
       />
       <TaskInput
         label="Target Date"
-        id="deadline1"
+        id="deadline"
         kind="date"
         setFunction={onHeaderChange}
       />
