@@ -4,8 +4,7 @@ import React, { FC, useState } from "react";
 
 const Content: FC = () => {
   const [dump, setDump] = useState("");
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  function onSubmit() {
     axios.post("/api/braindump", { dump });
   }
   return (
@@ -24,6 +23,7 @@ Separate new thoughts with a blank line.`}
             value={dump}
             onChange={(e) => setDump(e.target.value)}
           ></textarea>
+          <button onClick={onSubmit}>Dump</button>
         </form>
       </div>
     </div>
