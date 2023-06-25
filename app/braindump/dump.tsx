@@ -14,17 +14,18 @@ const Content: FC = () => {
         <h1 className="flex h-1/6 items-center justify-center border-b-4 border-purple-900 py-4 text-5xl">
           Brain Dump
         </h1>
-        <form className="text-center">
+        <form className="flex flex-grow flex-col text-center">
           <textarea
             id="message"
-            rows={22}
-            className="text-md block w-full border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            className="block h-full w-full resize-none border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-lg lg:text-sm"
             placeholder={`Write your thoughts here.
 Separate new thoughts with a blank line.`}
             value={dump}
             onChange={(e) => setDump(e.target.value)}
           ></textarea>
-          <button onClick={onSubmit}>Dump</button>
+          <button className="m-4 border bg-purple-800 p-4" onClick={onSubmit}>
+            Dump
+          </button>
         </form>
       </div>
     </div>
