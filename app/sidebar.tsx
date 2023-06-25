@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-const Button: FC<{ title: string, page : string }> = ({ title, page }) => {
+const Button: FC<{ title: string; page: string }> = ({ title, page }) => {
   return (
     <a
       href={page}
@@ -19,7 +19,7 @@ const Sidebar: FC = () => {
         Focus Fracture
       </a>
       <Button title="Workspace" page="/" />
-      <Button title="Build Task" page="/build" />
+      <Button title="Brain Dump" page="/braindump" />
       <div className="grow"></div>
     </div>
   );
