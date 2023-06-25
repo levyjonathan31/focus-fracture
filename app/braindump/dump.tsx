@@ -3,9 +3,10 @@ import axios from "axios";
 import React, { FC, useState } from "react";
 
 const Content: FC = () => {
+  const userID = "1";
   const [dump, setDump] = useState("");
   function onSubmit() {
-    axios.post("/api/braindump", { dump });
+    axios.post("/api/braindump", { userID, dump });
   }
   return (
     <div className="flex h-screen w-5/6 items-center justify-center break-words bg-gray-800">
