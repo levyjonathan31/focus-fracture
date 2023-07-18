@@ -1,4 +1,3 @@
-import Content from "./task-content";
 export default function Home() {
-  return <Content />;
+  return <h1> hi </h1>;
 }
