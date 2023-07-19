@@ -10,17 +10,19 @@ export default function Home() {
     axios.post("/api/braindump", { userID, dump });
   }
   return (
-    <div className="theme-zinc min-h-screen">
-      <h1 className="text-center text-3xl font-bold text-white">Brain Dump</h1>
-      <div className="grid w-full gap-2">
+    <>
+      <h1 className="pt-4 text-center text-3xl font-bold text-white">
+        Brain Dump
+      </h1>
+      <div className="grid w-full gap-2 p-4">
         <Textarea
-          className="resize-none bg-slate-800 text-white"
+          className="bg-wh min-h-[500px] resize-none bg-slate-300"
           placeholder={`What's on your mind?
-Separate new thoughts with a new line.`}
+Separate thoughts with a new line.`}
           onChange={(e) => setDump(e.target.value)}
         />
-        <Button onClick={onSubmit}>Send message</Button>
+        <Button onClick={onSubmit}>Dump</Button>
       </div>
-    </div>
+    </>
   );
 }

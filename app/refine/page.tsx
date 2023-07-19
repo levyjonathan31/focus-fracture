@@ -1,6 +1,8 @@
 "use client";
 import axios from "axios";
 import React, { FC, useEffect, useState } from "react";
+import CardForm from "@/components/ui/cardForm";
+const data = "joe mama!";
 export default function Home() {
   const [responseData, setResponseData] = useState("");
   useEffect(() => {
@@ -15,13 +17,11 @@ export default function Home() {
   });
 
   return (
-    <div className="flex h-screen w-5/6 items-center justify-center break-words bg-gray-800">
-      <div className="flex h-5/6 w-5/6 flex-col border-4 border-purple-900 bg-gray-900">
-        <h1 className="flex h-1/6 items-center justify-center border-b-4 border-purple-900 py-4 text-5xl">
-          Refine
-        </h1>
-        <p>{responseData}</p>
+    <>
+      <h1 className="pt-4 text-center text-3xl font-bold text-white">Refine</h1>
+      <div className="flex flex-col items-center pt-20">
+        <CardForm RefineInput={data} />
       </div>
-    </div>
+    </>
   );
 }
