@@ -6,7 +6,11 @@ export default function Home() {
   const [responseData, setResponseData] = useState("");
   useEffect(() => {
     axios
-      .get("/api/braindump")
+      .get("/api/braindump", {
+        params: {
+          userID: "1",
+        },
+      })
       .then((res) => {
         setResponseData(res.data[0]);
       })
